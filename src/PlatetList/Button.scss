@@ -1,0 +1,52 @@
+// variables
+$cancel: #C33764;
+$secondary: #F2994A;
+$standard: #155799;
+$submit: #159957;
+$white: #F1F2F2;
+$transition: all 0.25s ease-in-out;
+
+// mixin
+@mixin mybutton($color_1, $color_2) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 250px;
+  margin: 10px auto;
+  border: 2px solid $color_1;
+  padding: 6px 24px;
+  font-size: 1.15em;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: $color_1;
+  background-color: $color_2;
+  transition: $transition;
+  font-weight: bold;
+  font-family: Roboto, sans-serif;
+  cursor: pointer;
+  &:hover {
+    background-color: $color_1;
+    border-color: $color_1;
+    color: $color_2;
+  }
+  &:active {
+    background-color: $color_1;
+    border-color: $color_1;
+    color: $color_2;
+    box-shadow: none;
+  }
+  &:focus, &:active:focus {
+    background-color: $color_1;
+    border-color: $color_1;
+    color: $color_2;
+    outline: 5px auto $color_1;
+  }
+  &:visited {
+    background-color: $color_1;
+    border-color: $color_1;
+  }
+}
+
+.btn {
+  @include mybutton($standard, $white);
+}
