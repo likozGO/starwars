@@ -30,7 +30,7 @@ const PlanetList = () => {
                 } else {
                     setResults(resp.results)
                 }
-                setUrl(resp.next)
+                setUrl(resp.next.replace('http://','https://'))
                 setLoading(false)
             })
             .catch(() => {
