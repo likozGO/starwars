@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import PlanetCard from "../PlanetCard/PlanetCard";
 import './Button.scss';
 import Loading from "../EternalComponents/Loading";
+import PlanetArticle from "../PlanetArticle/PlanetArticle";
+import {Route} from "react-router-dom";
 
 const PlanetList = () => {
     const [loading, setLoading] = useState(true)
@@ -35,8 +37,6 @@ const PlanetList = () => {
                 setLoading(false)
                 setError(true)
             });
-        console.log(results)
-        console.log(info)
     }
 
     if (error) {
@@ -49,7 +49,7 @@ const PlanetList = () => {
             {!loading ?
             <>
                 <section className="section-planets">
-                    {results.map((item, ind) => <PlanetCard key={ind} {...item} /> )}
+                    {results.map((item, ind) => <PlanetCard key={ind} item={item} /> )}
                 </section>
                 <div>{nextPage ? <Loading /> : ''}</div>
                 {info.next ?
