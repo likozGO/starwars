@@ -11,7 +11,7 @@ $transition: all 0.25s ease-in-out;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 250px;
+  width: 200px;
   margin: 10px auto;
   border: 2px solid $color_1;
   padding: 6px 24px;
@@ -49,4 +49,16 @@ $transition: all 0.25s ease-in-out;
 
 .btn {
   @include mybutton($standard, $white);
+}
+
+.btn-back {
+  @include mybutton(#dd5, $white);
+  color: #fff!important;
+  &:hover {
+    opacity: .8;
+  }
+}
+
+a {
+  text-decoration: none;
 }
