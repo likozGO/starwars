@@ -25,7 +25,7 @@ const PlanetArticle = () => {
         if (residents.length > 0) {
             Promise.all([
                 residents.map(url =>
-                    fetch(url).then(value => value.json())
+                    fetch(url.replace('http://','https://')).then(value => value.json())
                         .then((value) => {
                             if (!famous) {
                                 setFamous(value)
@@ -89,16 +89,18 @@ const PlanetArticle = () => {
                     <Loading/> :
                     <table className="rwd-table">
                         <thead>
+                        <tr>
                         {Object.keys(famous[0])
-                            .filter(item => item !== 'homeworld' && item !== 'films' && item !== 'species' && item !== 'vehicles' && item !== 'starships' && item !== 'url' && item !== 'created' && item !== 'edited').map(a => <th>
-                            {<td>{a.toUpperCase()}</td>}
+                            .filter(item => item !== 'homeworld' && item !== 'films' && item !== 'species' && item !== 'vehicles' && item !== 'starships' && item !== 'url' && item !== 'created' && item !== 'edited').map((a, ind) => <th key={ind}>
+                            {a.toUpperCase()}
                         </th>)}
+                        </tr>
                         </thead>
                         <tbody>
-                        {famous.map(a => <tr>
+                        {famous.map((a, index) => <tr key={index}>
                             {Object.keys(a)
-                                .filter(item => item !== 'homeworld' && item !== 'films' && item !== 'species' && item !== 'vehicles' && item !== 'starships' && item !== 'url' && item !== 'created' && item !== 'edited').map(key =>
-                                <td>{a[key]}</td>
+                                .filter(item => item !== 'homeworld' && item !== 'films' && item !== 'species' && item !== 'vehicles' && item !== 'starships' && item !== 'url' && item !== 'created' && item !== 'edited').map((key, ind) =>
+                                <td key={ind}>{a[key]}</td>
                             )}
                         </tr>)}
                         </tbody>

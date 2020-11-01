@@ -124,11 +124,12 @@ $left-padding: 10px;
     display: flex;
     align-items: center;
     text-transform: uppercase;
-    .color-green {
+    .weight-color {
       border: 2px solid #5262bc;
       border-radius: 5px;
       background: #5262bc;
       color: #fff;
+      padding: 3px;
       display: block;
       margin-bottom: 5px;
     }
@@ -137,6 +138,7 @@ $left-padding: 10px;
     }
     .underline {
       text-decoration: underline;
+      font-size: 14px;
     }
     img {
       transition: filter 200ms ease;
@@ -206,7 +208,7 @@ $left-padding: 10px;
     }
     #{$root}__title {
       color: #ffffff;
-      .color-green {
+      .weight-color {
         border:1px solid #fff;
       }
       img {

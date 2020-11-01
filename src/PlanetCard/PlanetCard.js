@@ -25,14 +25,14 @@ const PlanetCard = ({item}) => {
                     <h1 className="article-card__title">
                         <img src={PlanetClimate} alt="Climate"/>
                         <div className="group">
-                            <span className="color-green">Climate: <br /></span>
+                            <span className="weight-color">Climate: <br /></span>
                             <span className="underline">{climate}</span>
                         </div>
                     </h1>
                     <h1 className="article-card__title">
                         <img src={PlanetPopulation} alt="Population"/>
                         <div className="group">
-                            <span className="color-green">Population: <br /> </span>
+                            <span className="weight-color">Population: <br /> </span>
                             <span className="underline">{population}</span>
                         </div>
                     </h1>
