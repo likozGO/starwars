@@ -37,3 +37,20 @@
     cursor: pointer;
   }
 }
+
+
+@media (max-width: 780px) {
+  .error-page {
+    h1 {
+      font-size: 5em;
+    }
+  }
+}
+
+@media (max-width: 580px) {
+  .error-page {
+    h1 {
+      font-size: 2.8em;
+    }
+  }
+}

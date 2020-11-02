@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link, useLocation} from "react-router-dom";
+import {Link, useLocation, useHistory} from "react-router-dom";
 import './AboutPlanet.scss'
 import Loading from "../EternalComponents/Loading";
 
@@ -17,6 +17,7 @@ const PlanetArticle = () => {
     const [loadingPage, setLoadingPage] = React.useState(false);
     const [dataPlanet, setDataPlanet] = React.useState([])
     let location = useLocation();
+    let history = useHistory();
     let data = location.state !== undefined && location.state.info;
     const {
         name, rotation_period, diameter, climate,
@@ -27,34 +28,38 @@ const PlanetArticle = () => {
         const ac = new AbortController();
         setLoading(true);
         //if we go from anywhere
+        // if (new Error) {
+        //     history.push("/404");
+        // }
         if (location.state === undefined) {
             setLoadingPage(true);
-            fetch('https://swapi.dev/api' + location.pathname)
-                .then(data => data.json())
-                .then(result => {
-                    setDataPlanet(result);
-                    if (result && result.residents.length > 0) {
-                        Promise.all([
-                            result.residents.map(url =>
-                                fetch(url.replace('http://','https://')).then(value => value.json())
-                                    .then((value) => {
-                                        if (!famous) {
-                                            setFamous(value)
-                                        } else {
-                                            setFamous(prev => [...prev, value])
-                                        }
-                                    })
-                                    .catch((err) => {
-                                        console.log(err);
-                                    })
-                            )
-                        ]).then(() => setLoading(false))
-                    } else {
-                        setNoFamous(true)
-                    }
-                    setLoading(false)
-                    setLoadingPage(false)
-                })
+                fetch('https://swapi.dev/api' + location.pathname)
+                    .then(data => data.json())
+                    .then(result => {
+                        setDataPlanet(result);
+                        if (result && result.residents.length > 0) {
+                            Promise.all([
+                                result.residents.map(url =>
+                                    fetch(url.replace('http://','https://')).then(value => value.json())
+                                        .then((value) => {
+                                            if (!famous) {
+                                                setFamous(value)
+                                            } else {
+                                                setFamous(prev => [...prev, value])
+                                            }
+                                        })
+                                        .catch((err) => {
+                                            console.log(err);
+                                        })
+                                )
+                            ]).then(() => setLoading(false))
+                        } else {
+                            setNoFamous(true)
+                        }
+                        setLoading(false)
+                        setLoadingPage(false)
+                    })
+                    .catch(() => history.push("/404"))
         }
         //if we go from cards
         if (!(location.state === undefined)) {

@@ -4,6 +4,7 @@ import './Button.scss';
 import Loading from "../EternalComponents/Loading";
 import PlanetArticle from "../PlanetArticle/PlanetArticle";
 import {Route} from "react-router-dom";
+import ErrorPage from "../EternalComponents/ErrorPage";
 
 const PlanetList = () => {
     const [loading, setLoading] = useState(true)
@@ -41,7 +42,7 @@ const PlanetList = () => {
 
     if (error) {
         return (
-            <>Error</>
+            <ErrorPage />
         );
     }
     return (
