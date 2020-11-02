@@ -10,7 +10,7 @@ const PlanetCard = ({item}) => {
     return (
         <figure className="article-card --without-image">
             <Link to={{
-                pathname: '/' + name,
+                pathname: '/planets/' + name,
                 state: {
                     info: item
                 }

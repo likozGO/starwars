@@ -1,7 +1,10 @@
 @import 'https://fonts.googleapis.com/css?family=Roboto:400,500,700';
 
 $left-padding: 10px;
-
+body {
+  margin: 0;
+  padding: 0;
+}
 .section-planets {
   display: flex;
   flex-wrap: wrap;
