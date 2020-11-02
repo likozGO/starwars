@@ -48,9 +48,9 @@ const PlanetArticle = () => {
                                                 setFamous(prev => [...prev, value])
                                             }
                                         })
-                                        // .catch((err) => {
-                                        //     console.log(err);
-                                        // })
+                                        .catch((err) => {
+                                            console.log(err);
+                                        })
                                 )
                             ]).then(() => setLoading(false))
                         } else {
@@ -59,7 +59,7 @@ const PlanetArticle = () => {
                         setLoading(false)
                         setLoadingPage(false)
                     })
-                    // .catch(() => history.push("/404"))
+                    .catch(() => history.push("/404"))
         }
         //if we go from cards
         if (!(location.state === undefined)) {
