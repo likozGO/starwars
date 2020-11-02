@@ -48,9 +48,9 @@ const PlanetArticle = () => {
                                                 setFamous(prev => [...prev, value])
                                             }
                                         })
-                                        .catch((err) => {
-                                            console.log(err);
-                                        })
+                                        // .catch((err) => {
+                                        //     console.log(err);
+                                        // })
                                 )
                             ]).then(() => setLoading(false))
                         } else {
