@@ -59,7 +59,7 @@ const PlanetArticle = () => {
                         setLoading(false)
                         setLoadingPage(false)
                     })
-                    .catch(() => history.push("/404"))
+                    // .catch(() => history.push("/404"))
         }
         //if we go from cards
         if (!(location.state === undefined)) {
