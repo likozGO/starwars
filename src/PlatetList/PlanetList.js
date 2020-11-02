@@ -30,7 +30,7 @@ const PlanetList = () => {
                 } else {
                     setResults(resp.results)
                 }
-                setUrl(resp.next.replace('http://','https://'))
+                setUrl(resp.next ? resp.next.replace('http://','https://') : '')
                 setLoading(false)
             })
             .catch(() => {
@@ -49,7 +49,7 @@ const PlanetList = () => {
             {!loading ?
             <>
                 <section className="section-planets">
-                    {results.map((item, ind) => <PlanetCard key={ind} item={item} /> )}
+                    {results.map((item, ind) => <PlanetCard planetUrl={ind + 1} key={ind} item={item} /> )}
                 </section>
                 <div>{nextPage ? <Loading /> : ''}</div>
                 {info.next ?

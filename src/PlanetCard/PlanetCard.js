@@ -5,12 +5,12 @@ import PlanetClimate from './planet-climate.svg'
 import './PlanetCard.scss';
 import {Link} from "react-router-dom";
 
-const PlanetCard = ({item}) => {
+const PlanetCard = ({item, planetUrl}) => {
     const {name, climate, population} = item;
     return (
         <figure className="article-card --without-image">
             <Link to={{
-                pathname: '/planets/' + name,
+                pathname: '/planets/' + planetUrl,
                 state: {
                     info: item
                 }
